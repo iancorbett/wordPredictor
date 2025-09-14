@@ -5,3 +5,5 @@ function tokenize(str) {
   }
 
   const lastN = (arr, n) => arr.slice(Math.max(0, arr.length - n)); //return last n items from array
+
+  const uni = new Map(); //counts how many times each number appears
