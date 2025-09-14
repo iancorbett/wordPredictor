@@ -2,3 +2,5 @@
     --gap: 1rem;
     --muted: #6b7280;
   }
+
+  * { box-sizing: border-box; }
