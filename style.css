@@ -44,3 +44,14 @@
   }
 
   textarea:focus { border-color: #a5b4fc; box-shadow: 0 0 0 3px rgba(99,102,241,.15); }
+
+  button {
+    margin-top: 0.5rem;
+    padding: .5rem .9rem;
+    border-radius: 10px;
+    border: 1px solid #111827;
+    background: #111827;
+    color: #fff;
+    cursor: pointer;
+  }
+  
