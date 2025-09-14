@@ -11,3 +11,7 @@ function tokenize(str) {
   const bi = new Map(); //for each word, track how many times other words come after it
 
   const tri = new Map(); //for each set of two words track how often each word comes afterwards
+
+  function inc(map, key, by = 1) {
+    map.set(key, (map.get(key) || 0) + by);//key in this case is a word
+  }
