@@ -9,3 +9,5 @@ function tokenize(str) {
   const uni = new Map(); //counts how many times each number appears
 
   const bi = new Map(); //for each word, track how many times other words come after it
+
+  const tri = new Map(); //for each set of two words track how often each word comes afterwards
