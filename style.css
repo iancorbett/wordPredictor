@@ -16,3 +16,9 @@
   
   p { margin: 0 0 1rem 0; }
   
+  .row {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: 1fr;
+    margin-block: 1rem;
+  }
