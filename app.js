@@ -17,3 +17,9 @@ function tokenize(str) {
   function inc(map, key, by = 1) {
     map.set(key, (map.get(key) || 0) + by);//key in this case is a word
   }
+
+  function incNested(top, key, subkey) { //top => uni, b, tri, ... key => word, subkey => the word after key
+    if (!top.has(key)) top.set(key, new Map()); // If we’ve never seen this context (key) before, create an empty inner Map to hold its next-word counts.
+    const inner = top.get(key); // Grab the inner Map for this context so we can update it, inner is the little table of “next words after key”
+    inner.set(subkey, (inner.get(subkey) || 0) + 1);
+  }
