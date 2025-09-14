@@ -26,3 +26,19 @@
   @media (min-width: 900px) {
     .row { grid-template-columns: 1fr 1fr; }
   }
+
+  section {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1rem;
+  }
+  
+  textarea {
+    width: 100%;
+    min-height: 120px;
+    font-size: 14px;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    outline: none;
+  }
