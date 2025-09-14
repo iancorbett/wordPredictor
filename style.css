@@ -22,3 +22,7 @@
     grid-template-columns: 1fr;
     margin-block: 1rem;
   }
+
+  @media (min-width: 900px) {
+    .row { grid-template-columns: 1fr 1fr; }
+  }
