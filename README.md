@@ -5,6 +5,10 @@ Built with vanilla HTML/CSS/JS and a simple n-gram language model (trigram → b
 
 ---
 
+<img width="1138" height="423" alt="Screenshot 2025-09-15 at 12 46 04 PM" src="https://github.com/user-attachments/assets/bf2ae48d-1113-4a69-b79a-f76fe9e9f57d" />
+
+---
+
 ## Features
 
 Paste any training text and click Train
