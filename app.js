@@ -79,3 +79,10 @@ const inputEl = document.getElementById('inputBox');
 const sugsEl = document.getElementById('sugs');
 const statusEl = document.getElementById('status');
 const trainBtn = document.getElementById('trainBtn');
+
+function renderSuggestions(prefix) {
+    if (totalTokens === 0) {
+      sugsEl.innerHTML = '<small>Train the model first.</small>';
+      return;
+    }
+}
