@@ -48,3 +48,10 @@ function tokenize(str) {
       }
    }
   }
+
+  function topKFromMap(m, k = 5) {
+    return [...m.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, k)
+      .map(([word, count]) => ({ word, count }));
+  }
