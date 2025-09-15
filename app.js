@@ -28,4 +28,6 @@ function tokenize(str) {
     // reset
     uni.clear(); bi.clear(); tri.clear(); totalTokens = 0;
 
+    const toks = tokenize(text); //create array of tokens
+    totalTokens = toks.length; 
   }
