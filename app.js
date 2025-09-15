@@ -106,3 +106,11 @@ function renderSuggestions(prefix) {
 }
 
 inputEl.addEventListener('input', () => renderSuggestions(inputEl.value));
+
+trainBtn.addEventListener('click', () => {
+    const text = trainingTextEl.value.trim();
+    if (!text) { alert('Paste some training text first.'); return; }//return if user clicks train without entering text
+    trainModel(text);
+    statusEl.innerHTML = `<small>Trained on ${totalTokens.toLocaleString()} tokens · unique words: ${uni.size.toLocaleString()}</small>`;
+    renderSuggestions(inputEl.value);
+  });
