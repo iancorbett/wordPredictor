@@ -70,5 +70,12 @@ function tokenize(str) {
     if (bi.has(last)) return topKFromMap(bi.get(last), k);
   
     return topKFromMap(uni, k);
-
 }
+
+//UI
+
+const trainingTextEl = document.getElementById('trainingText');
+const inputEl = document.getElementById('inputBox');
+const sugsEl = document.getElementById('sugs');
+const statusEl = document.getElementById('status');
+const trainBtn = document.getElementById('trainBtn');
