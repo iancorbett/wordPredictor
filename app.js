@@ -23,3 +23,9 @@ function tokenize(str) {
     const inner = top.get(key); // Grab the inner Map for this context so we can update it, inner is the little table of “next words after key”
     inner.set(subkey, (inner.get(subkey) || 0) + 1);
   }
+
+  function trainModel(text) {
+    // reset
+    uni.clear(); bi.clear(); tri.clear(); totalTokens = 0;
+
+  }
