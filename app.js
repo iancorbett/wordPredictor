@@ -114,3 +114,10 @@ trainBtn.addEventListener('click', () => {
     statusEl.innerHTML = `<small>Trained on ${totalTokens.toLocaleString()} tokens · unique words: ${uni.size.toLocaleString()}</small>`;
     renderSuggestions(inputEl.value);
   });
+
+  const STARTER = `
+I love building tiny models that learn from text.
+Tiny models can still feel magical when they predict the next word you were about to type.
+Models trained on your own writing will mirror your voice and common phrases.
+Try adding more paragraphs to see the suggestions change as you type.
+`.trim();
