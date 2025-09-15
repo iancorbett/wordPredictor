@@ -123,3 +123,4 @@ Try adding more paragraphs to see the suggestions change as you type.
 `.trim();
 
 trainingTextEl.value = STARTER;
+trainBtn.click();
