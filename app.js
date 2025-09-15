@@ -33,18 +33,18 @@ function tokenize(str) {
 
 
   for (let i = 0; i < toks.length; i++) {
-    const w = toks[i];
-    inc(uni, w);
+    const w = toks[i]; // current word
+    inc(uni, w); // count unigram: w
 
     if (i >= 1) {
-      const w1 = toks[i - 1];
-      incNested(bi, w1, w);
+      const w1 = toks[i - 1]; // previous word
+      incNested(bi, w1, w); // count bigram: (w1 -> w)
     }
 
     if (i >= 2) {
-        const w1 = toks[i - 2], w2 = toks[i - 1];
+        const w1 = toks[i - 2], w2 = toks[i - 1]; // two-word context
         const key = `${w1} ${w2}`;
-        incNested(tri, key, w);
+        incNested(tri, key, w); // count trigram: ("w1 w2" -> w)
       }
    }
   }
