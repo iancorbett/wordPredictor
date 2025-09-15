@@ -85,4 +85,7 @@ function renderSuggestions(prefix) {
       sugsEl.innerHTML = '<small>Train the model first.</small>';
       return;
     }
+
+    const preds = predictNextWords(prefix, 5);
+    sugsEl.innerHTML = '';
 }
