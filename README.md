@@ -1,9 +1,10 @@
-Next-Word Predictor (Trigram with Backoff)
+## Next-Word Predictor (Trigram with Backoff)
 
 A tiny, dependency-free web app that learns from text you paste in and suggests the next word as you type.
 Built with vanilla HTML/CSS/JS and a simple n-gram language model (trigram → bigram → unigram backoff).
+---
 
- Features
+## Features
 
 Paste any training text and click Train
 
@@ -14,14 +15,17 @@ Trigram prediction with backoff to bigram/unigram
 Unicode-aware tokenizer (handles accents, curly quotes, numbers)
 
 Zero build tools, just open index.html
+---
 
- File structure
+## File structure
 / (any folder)
 ├─ index.html   # markup + script tag
 ├─ style.css    # layout & chip styling
 └─ app.js       # tokenizer, model, UI wiring
 
- Quick start
+---
+
+## Quick start
 
 Put index.html, style.css, and app.js in the same folder.
 
@@ -32,8 +36,9 @@ Paste some text into Training text → click Train.
 Type in the Try it box and click the suggestion chips.
 
 The page ships with a small starter corpus and auto-trains on load so you can see it working immediately.
+---
 
-🧠 How it works
+## How it works
 
 Tokenize → Lowercases and extracts “wordy” tokens using:
 
@@ -60,7 +65,7 @@ Rank → Sort candidates by frequency and show top-K (defaults to 5).
 
  Key code (high level)
 
-Backoff prediction:
+**Backoff prediction:**
 
 function predictNextWords(prefix, k = 5) {
   const toks = tokenize(prefix);
@@ -76,7 +81,7 @@ function predictNextWords(prefix, k = 5) {
 }
 
 
-Suggestion chip click handler (append picked word and refresh):
+**Suggestion chip click handler (append picked word and refresh):**
 
 chip.addEventListener('click', () => {
   const txt = inputEl.value;
@@ -85,8 +90,9 @@ chip.addEventListener('click', () => {
   inputEl.dispatchEvent(new Event('input'));
   inputEl.focus();
 });
+---
 
- Configuration & tweaks
+## Configuration & tweaks
 
 Change number of suggestions: in predictNextWords(prefix, k), pass a different k (and/or where chips render).
 
@@ -129,35 +135,12 @@ function loadModel() {
 
 
 Call saveModel() after training; call loadModel() on page load before predicting.
+---
 
- Testing ideas
+## Testing ideas
 
 Train on a paragraph you wrote → type familiar phrases and see if your go-to words pop up.
 
 Train on news text → type “according to the” or “in response to” and observe predictions.
 
-Compare results with tiny vs. large corpora.
-
- Troubleshooting
-
-“Model not trained yet.” → Click Train after pasting text (or keep the starter corpus).
-
-No suggestions / empty chips.
-Make sure your browser supports Unicode property escapes (\p{L}/\p{N}) — all modern browsers do.
-
-Script errors when opening HTML from disk.
-Use a modern browser; if you added fetch/XHR later, serve via a local server.
-
- Roadmap (nice upgrades)
-
-Add interpolation (mix tri/bi/uni with weights like 0.6/0.3/0.1)
-
-Add smoothing (Laplace / add-k) to reduce zero-probability contexts
-
-Insert at cursor instead of always appending
-
-Keep only top N continuations per context to cap memory
-
-Export/import model as JSON file
-
-Try a tiny Transformer in TF.js for neural predictions
+Compare results with tiny vs. large training texts.
