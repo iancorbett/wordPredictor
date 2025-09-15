@@ -30,4 +30,21 @@ function tokenize(str) {
 
     const toks = tokenize(text); //create array of tokens
     totalTokens = toks.length; 
+
+
+  for (let i = 0; i < toks.length; i++) {
+    const w = toks[i];
+    inc(uni, w);
+
+    if (i >= 1) {
+      const w1 = toks[i - 1];
+      incNested(bi, w1, w);
+    }
+
+    if (i >= 2) {
+        const w1 = toks[i - 2], w2 = toks[i - 1];
+        const key = `${w1} ${w2}`;
+        incNested(tri, key, w);
+      }
+   }
   }
