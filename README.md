@@ -2,6 +2,7 @@
 
 A tiny, dependency-free web app that learns from text you paste in and suggests the next word as you type.
 Built with vanilla HTML/CSS/JS and a simple n-gram language model (trigram → bigram → unigram backoff).
+
 ---
 
 ## Features
@@ -15,6 +16,7 @@ Trigram prediction with backoff to bigram/unigram
 Unicode-aware tokenizer (handles accents, curly quotes, numbers)
 
 Zero build tools, just open index.html
+
 ---
 
 ## File structure
@@ -36,6 +38,7 @@ Paste some text into Training text → click Train.
 Type in the Try it box and click the suggestion chips.
 
 The page ships with a small starter corpus and auto-trains on load so you can see it working immediately.
+
 ---
 
 ## How it works
@@ -90,6 +93,7 @@ chip.addEventListener('click', () => {
   inputEl.dispatchEvent(new Event('input'));
   inputEl.focus();
 });
+
 ---
 
 ## Configuration & tweaks
@@ -135,6 +139,7 @@ function loadModel() {
 
 
 Call saveModel() after training; call loadModel() on page load before predicting.
+
 ---
 
 ## Testing ideas
