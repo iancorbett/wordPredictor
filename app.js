@@ -88,4 +88,19 @@ function renderSuggestions(prefix) {
 
     const preds = predictNextWords(prefix, 5);
     sugsEl.innerHTML = '';
+
+    preds.forEach(p => {
+        const chip = document.createElement('div');
+        chip.className = 'chip'; // style it like a pill via CSS
+        chip.textContent = p.word;
+        chip.title = `count: ${p.count}`;
+        chip.onclick = () => {
+          const txt = inputEl.value; // current text in the typing box
+          const needsSpace = txt.length && !/\s$/.test(txt); // add a space if the last char isn't whitespace
+          inputEl.value = txt + (needsSpace ? ' ' : '') + p.word + ' '; // append chosen word + trailing space
+          inputEl.dispatchEvent(new Event('input')); // re-run the predictor to refresh suggestions
+          inputEl.focus();  // put cursor back in the textbox
+        };
+        sugsEl.appendChild(chip);  // add the chip to the suggestions container
+      });
 }
