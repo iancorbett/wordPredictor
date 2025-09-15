@@ -121,3 +121,5 @@ Tiny models can still feel magical when they predict the next word you were abou
 Models trained on your own writing will mirror your voice and common phrases.
 Try adding more paragraphs to see the suggestions change as you type.
 `.trim();
+
+trainingTextEl.value = STARTER;
