@@ -49,9 +49,26 @@ function tokenize(str) {
    }
   }
 
-  function topKFromMap(m, k = 5) {
+  function topKFromMap(m, k = 5) { 
     return [...m.entries()]
       .sort((a, b) => b[1] - a[1])
       .slice(0, k)
       .map(([word, count]) => ({ word, count }));
   }
+
+  function predictNextWords(prefix, k = 5) {//prefix is what the user has typed so far; k = how many suggestions you want (default 5)
+    const toks = tokenize(prefix); //Turn the prefix into tokens/words
+    if (toks.length === 0) return topKFromMap(uni, k); //If there’s no context (empty box), just return the overall most common words (unigrams)
+  
+    if (toks.length >= 2) { //grab the last two (w1, w2)
+      const [w1, w2] = lastN(toks, 2); 
+      const key = `${w1} ${w2}`;
+      if (tri.has(key)) return topKFromMap(tri.get(key), k);//if we’ve seen that context during training, return the top k next words from the trigram table
+    }
+
+    const last = toks[toks.length - 1];
+    if (bi.has(last)) return topKFromMap(bi.get(last), k);
+  
+    return topKFromMap(uni, k);
+
+}
