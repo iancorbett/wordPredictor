@@ -104,3 +104,5 @@ function renderSuggestions(prefix) {
         sugsEl.appendChild(chip);  // add the chip to the suggestions container
       });
 }
+
+inputEl.addEventListener('input', () => renderSuggestions(inputEl.value));
